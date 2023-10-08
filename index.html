@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Form Layout</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="logo-container">
+            <img src="logo.png" alt="Logo" class="logo" />
+        </div>
+        <form id="personal-info-form">
+            <div class="container">
+                <section class="section">
+
+                    <div id="progress-bar-container">
+                        <div id="progress-bar"></div>
+                    </div>
+                    <span id="step-count">Step 1 of 3</span>
+                    <h1>Affordable Connectivity Program (ACP) | Form 5645 online
+                        |
+                        test</h1>
+
+                    <form id="enrollment-form">
+                        <label for="options">Please Select from the list(*)</label>
+                        <select id="options" name="options"
+                            aria-label="Select an option">
+                            <option value="option1">Drop Down Menu</option>
+                            <option value="option2">Test</option>
+                            <option value="option3">Test2</option>
+                        </select>
+                    </form>
+                </section>
+
+                <section class="section">
+
+                    <h1>Eligibility Programs (*)</h1>
+                
+                    <form id="enrollment-form">
+                        <label>
+                            <input
+                                type="radio"
+                                name="eligibility"
+                                value="FPHA"
+                                id="first-radio"
+                                onchange="showAdditionalInfo()" />
+                            Federal Public Housing Assistance (FPHA) </label><br />
+                
+                        <label>
+                            <input
+                                type="radio"
+                                name="eligibility"
+                                value="SchoolLunch"
+                                onchange="showSchoolNameField()" />
+                            Free &amp; Reduced-Price School Lunch Program or
+                            School
+                            Breakfast
+                            Program </label><br />
+                        <label>
+                            <input
+                                type="radio"
+                                name="eligibility"
+                                value="Medicaid"
+                                onchange="hideAboveButton()" />
+                            Medicaid </label><br />
+                        <label>
+                            <input
+                                type="radio"
+                                name="eligibility"
+                                value="SNAP"
+                                onchange="hideAboveButton()" />
+                            Supplemental Nutrition Assistance Program (SNAP/Food
+                            Stamps) </label><br />
+                        <label>
+                            <input
+                                type="radio"
+                                name="eligibility"
+                                value="SSI"
+                                onchange="hideAboveButton()" />
+                            Supplemental Security Income (SSI) </label><br />
+                        <label>
+                            <input
+                                type="radio"
+                                name="eligibility"
+                                value="VeteransPension"
+                                onchange="hideAboveButton()" />
+                            Veterans Pension and Survivors Benefit Programs
+                        </label><br />
+                
+                        <label>
+                            <input
+                                type="radio"
+                                name="eligibility"
+                                value="IncomeQualify"
+                                onchange="showIncomeQualifySection()" />
+                            Qualify through my Income </label><br />
+                
+                        <label>
+                            <input
+                                type="radio"
+                                name="eligibility"
+                                value="PellGrant"
+                                onchange="showPellGrantSection()" />
+                            Federal Pell Grant for the current award year
+                        </label><br />
+                
+                        <label>
+                            <input
+                                type="radio"
+                                name="eligibility"
+                                value="WIC"
+                                onchange="hideAboveButton()" />
+                            Special Supplemental Nutrition Program (WIC)
+                        </label><br />
+                
+                        <h2>Tribal Specific Programs</h2>
+                        <label>
+                            <input
+                                type="radio"
+                                name="eligibility"
+                                value="BIA"
+                                onchange="hideAboveButton()" />
+                            Bureau of Indian Affairs (BIA) General Assistance
+                        </label><br />
+                        <label>
+                            <input
+                                type="radio"
+                                name="eligibility"
+                                value="TribalTANF"
+                                onchange="hideAboveButton()" />
+                            Tribal Temporary Assistance for Needy Families
+                            (Tribal
+                            TANF) </label><br />
+                        <label>
+                            <input
+                                type="radio"
+                                name="eligibility"
+                                value="FDPIR"
+                                onchange="hideAboveButton()" />
+                            Food Distribution Program on Indian Reservations
+                            (FDPIR)
+                        </label><br />
+                        <label>
+                            <input
+                                type="radio"
+                                name="eligibility"
+                                value="TribalHeadStart"
+                                onchange="hideAboveButton()" />
+                            Tribal Head Start (only households that meet the
+                            income
+                            qualifying
+                            standard) </label><br />
+                        <div id="additional-info" style="display: none">
+                            <h2>Please select your housing assistance program(*)</h2>
+                            <label>
+                                <input type="radio" name="housingAssistance"
+                                    value="HCV" />
+                                Housing Choice Voucher (HCV) Program (Section 8
+                                Vouchers) </label><br />
+                            <label>
+                                <input type="radio" name="housingAssistance"
+                                    value="PBRA" />
+                                Project-Based Rental Assistance (PBRA)/202/811
+                            </label><br />
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="housingAssistance"
+                                    value="PublicHousing" />
+                                Public Housing </label><br />
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="housingAssistance"
+                                    value="AffordableHousing" />
+                                Affordable Housing Programs for American
+                                Indians,
+                                Alaska Natives or
+                                Native Hawaiians </label><br />
+                        </div>
+                
+                        <div id="school-name-field" style="display: none">
+                            <h2>School Name(*)</h2>
+                            <label for="schoolName">School Name:</label>
+                            <input type="text" id="schoolName" name="schoolName"
+                                 />
+                
+                            <!-- Add the "Benefit Qualifying Person (BQP)" section -->
+                            <h2>
+                                Benefit Qualifying Person (BQP): Check if you
+                                are
+                                qualifying through
+                                a child or dependent in your household.
+                            </h2>
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="bqp"
+                                    value="yes"
+                                    onchange="showBqpDetails()" />
+                                Yes
+                            </label>
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="bqp"
+                                    value="no"
+                                    onchange="hideBqpDetails()" />
+                                No
+                            </label>
+                
+                            <!-- Input field for BQP details -->
+                            <div id="bqp-details" style="display: none">
+                                <h2>Child/Dependent Details</h2>
+                                <label for="bqpDetails" style="width: 20rem;">Details:</label>
+                                <input type="text" id="bqpDetails"
+                                    name="bqpDetails" />
+                            </div>
+                        </div>
+                
+                        <div id="household-info" style="display: none">
+                            <h2>Number of People in Your Household(*)</h2>
+                            <label for="householdSize">Household Size:</label>
+                            <input
+                                type="number"
+                                id="householdSize"
+                                name="householdSize"
+                                min="1"
+                                 />
+                        </div>
+                
+                    </form>
+                </section>
+
+                <section class="section">
+                    <h1>Personal Information</h1>
+                    <form id="personal-info-form">
+                        <div class="form-group">
+                            <label for="firstName" class="form-label">First
+                                Name(*)</label>
+                            <input type="text" id="firstName" name="firstName"
+                                class="form-input" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="middleName" class="form-label">Middle
+                                Name</label>
+                            <input type="text" id="middleName" name="middleName"
+                                class="form-input" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lastName" class="form-label">Last
+                                Name(*)</label>
+                            <input type="text" id="lastName" name="lastName"
+                                class="form-input" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="secondLastName" class="form-label">Second
+                                Last Name</label>
+                            <input type="text" id="secondLastName"
+                                name="secondLastName" class="form-input" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dob" class="form-label">Date of Birth(*)</label>
+                            <input type="text" id="dob" name="dob"
+                                class="form-input" placeholder="MM/DD/YYYY"
+                                required />
+                            <span class="error-message" id="dob-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ssn" class="form-label">Last 4 digits of
+                                your SSN(*)</label>
+                            <input type="text" id="ssn" name="ssn"
+                                class="form-input" pattern="[0-9]{4}" required />
+                            <span class="error-message" id="ssn-error"></span>
+                        </div>
+
+                    </form>
+                </section>
+
+                <section class="section">
+                    <h1>Contact Information</h1>
+                    <form id="contact-info-form">
+
+                        <div class="form-group">
+                            <label class="form-label">What is the best way to
+                                reach
+                                you? (*)</label>
+                            <div class="radio-container">
+                                <input type="radio" id="reachByEmail"
+                                    name="reachMethod" value="Email" required
+                                    checked>
+                                <label for="reachByEmail">Email</label>
+
+                                <input type="radio" id="reachByPhone"
+                                    name="reachMethod" value="Phone" required>
+                                <label for="reachByPhone">Phone</label>
+
+                                <input type="radio" id="reachByText"
+                                    name="reachMethod" value="Text Message"
+                                    required>
+                                <label for="reachByText">Text Message</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone(*)</label>
+                            <input type="text" id="phone" name="phone"
+                                class="form-input" placeholder="XXX-XXX-XXXX"
+                                required>
+                            <span class="error-message" id="phone-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email(*)</label>
+                            <input type="email" id="email" name="email"
+                                class="form-input" required>
+                            <span class="error-message" id="email-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address" class="form-label">Address</label>
+                            <input type="text" id="address" name="address"
+                                class="form-input">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="aptFloorOther" class="form-label">Apt/Floor/Other</label>
+                            <input type="text" id="aptFloorOther"
+                                name="aptFloorOther" class="form-input">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="city" class="form-label">City</label>
+                            <input type="text" id="city" name="city"
+                                class="form-input">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="state" class="form-label">State</label>
+                            <select id="state" name="state" class="form-input">
+                                <option value="AL">Alabama</option>
+                                <option value="AK">Alaska</option>
+                                <!-- Add more options for other states -->
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="zipCode" class="form-label">Zip Code</label>
+                            <input type="text" id="zipCode" name="zipCode"
+                                class="form-input" pattern="[0-9]{5}" required>
+                            <span class="error-message" id="zipCode-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">My Residential Address
+                                is(*)</label>
+                            <div class="radio-container">
+                                <input type="radio" id="temporary"
+                                    name="residentialAddress" value="Temporary"
+                                    required>
+                                <label for="temporary" class="radio-label">Temporary</label>
+
+                                <input type="radio" id="permanent"
+                                    name="residentialAddress" value="Permanent">
+                                <label for="permanent" class="radio-label">Permanent</label>
+                            </div>
+                        </div>
+
+                    </form>
+                </section>
+
+                <section class="section">
+                    <h1>Device Copay Payment</h1>
+                    <h2 style="color: black" id="pg5-h1">
+                        The Affordable Connectivity Program (ACP) allows
+                        qualifying
+                        subscribers
+                        to claim a one time discount toward a tablet.<br />
+                        The FCC requires us to charge a copay amount.<br />
+                        Our Copay for an Android Tablet with 4G LTE Connectivity
+                        is
+                        a
+                        one-time
+                        $11.00
+                    </h2>
+                    <p style="color: red" id="pg5-p">
+                        (A transaction of $11.00 will be drafted when the
+                        prospect
+                        subscriber is
+                        approved to receive a Tablet)
+                    </p>
+                    <form
+                        id="copay-payment-form"
+                        action="Page6.html">
+                        <div class="form-group">
+                            <label for="creditCardNumber" class="form-label"
+                                id="pg2-label">Credit Card
+                                Number(*)</label>
+                            <input
+                                type="text"
+                                id="creditCardNumber"
+                                name="creditCardNumber"
+                                class="form-input"
+                                required />
+                            <span class="error-message"
+                                id="creditCardNumber-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="firstNameOnCard" class="form-label"
+                                id="pg2-label">First Name
+                                on Credit Card(*)</label>
+                            <input
+                                type="text"
+                                id="firstNameOnCard"
+                                name="firstNameOnCard"
+                                class="form-input"
+                                required />
+                            <span class="error-message"
+                                id="firstNameOnCard-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cvvCode" class="form-label"
+                                id="pg2-label">CVV
+                                Code(*)</label>
+                            <input
+                                type="text"
+                                id="cvvCode"
+                                name="cvvCode"
+                                class="form-input"
+                                required />
+                            <span class="error-message" id="cvvCode-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lastNameOnCard" class="form-label"
+                                id="pg2-label">Last Name on
+                                Credit Card(*)</label>
+                            <input
+                                type="text"
+                                id="lastNameOnCard"
+                                name="lastNameOnCard"
+                                class="form-input"
+                                required />
+                            <span class="error-message"
+                                id="lastNameOnCard-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="expDate" class="form-label"
+                                id="pg2-label">Exp.
+                                Date(*)
+                                (MM/YYYY)</label>
+                            <input
+                                type="text"
+                                id="expDate"
+                                name="expDate"
+                                class="form-input"
+                                placeholder="MM/YYYY"
+                                required />
+                            <span class="error-message" id="expDate-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="addressOnCard" class="form-label"
+                                id="pg2-label">Address on
+                                Credit Card(*)</label>
+                            <input
+                                type="text"
+                                id="addressOnCard"
+                                name="addressOnCard"
+                                class="form-input"
+                                required />
+                            <span class="error-message" id="addressOnCard-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cityOnCard" class="form-label"
+                                id="pg2-label">City on Credit
+                                Card(*)</label>
+                            <input
+                                type="text"
+                                id="cityOnCard"
+                                name="cityOnCard"
+                                class="form-input"
+                                required />
+                            <span class="error-message" id="cityOnCard-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="stateOnCard" class="form-label"
+                                id="pg2-label">State on Credit
+                                Card(*)</label>
+                            <input
+                                type="text"
+                                id="stateOnCard"
+                                name="stateOnCard"
+                                class="form-input"
+                                required />
+                            <span class="error-message" id="stateOnCard-error"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="zipCodeOnCard" class="form-label"
+                                id="pg2-label">Zip Code on
+                                Credit Card(*)</label>
+                            <input
+                                type="text"
+                                id="zipCodeOnCard"
+                                name="zipCodeOnCard"
+                                class="form-input"
+                                pattern="[0-9]{5}"
+                                required />
+                            <span class="error-message" id="zipCodeOnCard-error"></span>
+                        </div>
+
+                    </form>
+                </section>
+
+                <button class="submit-button" type="button" id="submit-button" onclick="validateForm()">Submit</button>
+
+            </div>
+        </form>
+        <script>
+        // Function to validate Date of Birth (MM/DD/YYYY format)
+        function validateDOB() {
+            const dobInput = document.getElementById("dob");
+            const dobValue = dobInput.value;
+    
+            // Regular expression to match MM/DD/YYYY format
+            const dobRegex = /^(0[1-9]|1[0-2])\/(0[1-9]|[12]\d|3[01])\/\d{4}$/;
+    
+            if (!dobRegex.test(dobValue)) {
+                document.getElementById("dob-error").textContent = "Invalid date format (MM/DD/YYYY)";
+                dobInput.focus();
+                return false;
+            } else {
+                document.getElementById("dob-error").textContent = "";
+                return true;
+            }
+        }
+    
+        // Function to validate Last 4 digits of SSN
+        function validateSSN() {
+            const ssnInput = document.getElementById("ssn");
+            const ssnValue = ssnInput.value;
+    
+            // Regular expression to match exactly 4 digits
+            const ssnRegex = /^\d{4}$/;
+    
+            if (!ssnRegex.test(ssnValue)) {
+                document.getElementById("ssn-error").textContent = "Invalid SSN format (4 digits)";
+                ssnInput.focus();
+                return false;
+            } else {
+                document.getElementById("ssn-error").textContent = "";
+                return true;
+            }
+        }
+    
+        // Function to validate the entire personal information form
+        function validatePersonalInfo() {
+            return validateDOB() && validateSSN();
+        }
+    
+        // Attach validation functions to the input fields' events
+        document.getElementById("dob").addEventListener("blur", validateDOB);
+        document.getElementById("ssn").addEventListener("blur", validateSSN);
+    
+    // Function to validate phone number format (XXX-XXX-XXXX)
+    function validatePhone() {
+        const phoneInput = document.getElementById("phone");
+        const phoneValue = phoneInput.value;
+
+        const phoneRegex = /^\d{3}-\d{3}-\d{4}$/;
+
+        if (!phoneRegex.test(phoneValue)) {
+            document.getElementById("phone-error").textContent = "Invalid phone format (XXX-XXX-XXXX)";
+            phoneInput.focus();
+            return false;
+        } else {
+            document.getElementById("phone-error").textContent = "";
+            return true;
+        }
+    }
+
+    // Function to validate email format
+    function validateEmail() {
+        const emailInput = document.getElementById("email");
+        const emailValue = emailInput.value;
+
+        // Regular expression for a basic email format validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailRegex.test(emailValue)) {
+            document.getElementById("email-error").textContent = "Invalid email format";
+            emailInput.focus();
+            return false;
+        } else {
+            document.getElementById("email-error").textContent = "";
+            return true;
+        }
+    }
+
+    // Function to validate zip code (5 digits)
+    function validateZipCode() {
+        const zipCodeInput = document.getElementById("zipCode");
+        const zipCodeValue = zipCodeInput.value;
+
+        // Regular expression to match exactly 5 digits
+        const zipCodeRegex = /^\d{5}$/;
+
+        if (!zipCodeRegex.test(zipCodeValue)) {
+            document.getElementById("zipCode-error").textContent = "Invalid zip code format (5 digits)";
+            zipCodeInput.focus();
+            return false;
+        } else {
+            document.getElementById("zipCode-error").textContent = "";
+            return true;
+        }
+    }
+
+    // Function to validate the entire contact information form
+    function validateContactInfo() {
+        return validatePhone() && validateEmail() && validateZipCode();
+    }
+
+    // Attach validation functions to the input fields' events
+    document.getElementById("phone").addEventListener("blur", validatePhone);
+    document.getElementById("email").addEventListener("blur", validateEmail);
+    document.getElementById("zipCode").addEventListener("blur", validateZipCode);
+
+
+     // Function to validate the credit card number
+     function validateCreditCardNumber() {
+        const creditCardNumberInput = document.getElementById("creditCardNumber");
+        const creditCardNumberValue = creditCardNumberInput.value;
+
+        // Regular expression to match a valid credit card number (for demonstration purposes)
+        // You should replace this with your own validation logic or use a library for credit card validation
+        const creditCardNumberRegex = /^\d{16}$/;
+
+        if (!creditCardNumberRegex.test(creditCardNumberValue)) {
+            document.getElementById("creditCardNumber-error").textContent = "Invalid credit card number";
+            creditCardNumberInput.focus();
+            return false;
+        } else {
+            document.getElementById("creditCardNumber-error").textContent = "";
+            return true;
+        }
+    }
+
+    // Function to validate the CVV code
+    function validateCVVCode() {
+        const cvvCodeInput = document.getElementById("cvvCode");
+        const cvvCodeValue = cvvCodeInput.value;
+
+        // Regular expression to match a valid CVV code (3 or 4 digits)
+        const cvvCodeRegex = /^\d{3,4}$/;
+
+        if (!cvvCodeRegex.test(cvvCodeValue)) {
+            document.getElementById("cvvCode-error").textContent = "Invalid CVV code";
+            cvvCodeInput.focus();
+            return false;
+        } else {
+            document.getElementById("cvvCode-error").textContent = "";
+            return true;
+        }
+    }
+
+    // Function to validate the expiration date (MM/YYYY)
+    function validateExpDate() {
+        const expDateInput = document.getElementById("expDate");
+        const expDateValue = expDateInput.value;
+
+        // Regular expression to match a valid MM/YYYY date format
+        const expDateRegex = /^(0[1-9]|1[0-2])\/\d{4}$/;
+
+        if (!expDateRegex.test(expDateValue)) {
+            document.getElementById("expDate-error").textContent = "Invalid expiration date format (MM/YYYY)";
+            expDateInput.focus();
+            return false;
+        } else {
+            document.getElementById("expDate-error").textContent = "";
+            return true;
+        }
+    }
+
+
+    // Function to validate the entire Device Copay Payment form
+    function validateCopayPayment() {
+        return (
+            validateCreditCardNumber() &&
+            validateCVVCode() &&
+            validateExpDate()
+            // Add more validation functions as needed
+        );
+    }
+
+    // Attach validation functions to the input fields' events
+    document.getElementById("creditCardNumber").addEventListener("blur", validateCreditCardNumber);
+    document.getElementById("cvvCode").addEventListener("blur", validateCVVCode);
+    document.getElementById("expDate").addEventListener("blur", validateExpDate);
+
+
+
+    document
+  .getElementById("enrollment-form")
+  .addEventListener("submit", function (event) {
+    if (!validateForm()) {
+      event.preventDefault(); // Prevent form submission if validation fails
+    }
+  });
+
+  function validateRadioButtonSelection() {
+    var eligibilityRadioButtons = document.querySelectorAll(
+      'input[name="eligibility"]'
+    );
+    for (var i = 0; i < eligibilityRadioButtons.length; i++) {
+      if (eligibilityRadioButtons[i].checked) {
+        return true; // At least one option is selected
+      }
+    }
+    return false; // No option is selected
+  }
+  
+  
+
+  function validateAdditionalInfo() {
+    var selectedEligibility = document.querySelector(
+      'input[name="eligibility"]:checked'
+    ).value;
+  
+    if (selectedEligibility === "FPHA") {
+      var housingAssistanceOptions = document.querySelectorAll(
+        'input[name="housingAssistance"]'
+      );
+  
+      // Check if at least one housing assistance option is selected
+      for (var i = 0; i < housingAssistanceOptions.length; i++) {
+        if (housingAssistanceOptions[i].checked) {
+          return true;
+        }
+      }
+
+      return false; // None of the housing assistance options are selected
+    } else if (
+      selectedEligibility === "SchoolLunch" ||
+      selectedEligibility === "PellGrant"
+    ) {
+      var schoolNameInput = document.getElementById("schoolName");
+      var schoolNameValue = schoolNameInput.value.trim();
+      return schoolNameValue !== "";
+    } else if (selectedEligibility === "IncomeQualify") {
+      var householdSizeInput = document.getElementById("householdSize");
+      var householdSizeValue = householdSizeInput.value.trim();
+      return !isNaN(householdSizeValue) && householdSizeValue !== "";
+    }
+  
+    // No additional validation required for other eligibility options
+    return true;
+  }
+
+  var eligibilityRadioButtons = document.querySelectorAll(
+    'input[name="eligibility"]'
+  );
+
+
+  var eligibilityRadioButtons = document.querySelectorAll(
+    'input[name="eligibility"]'
+  );
+  
+  for (var i = 0; i < eligibilityRadioButtons.length; i++) {
+    eligibilityRadioButtons[i].addEventListener("change");
+  }
+  
+
+document.getElementById("first-radio").addEventListener("change", function () {
+    var additionalInfo = document.getElementById("additional-info");
+  
+    // If the first radio button is checked, show the "additional-info" div, otherwise, hide it
+    if (this.checked) {
+      additionalInfo.style.display = "block";
+    } else {
+      additionalInfo.style.display = "none";
+    }
+  });
+
+
+function hideAboveButton() {
+  var additionalInfo = document.getElementById("additional-info");
+  var schoolNameField = document.getElementById("school-name-field");
+  var householdInfo = document.getElementById("household-info");
+
+  additionalInfo.style.display = "none";
+  schoolNameField.style.display = "none";
+  householdInfo.style.display = "none";
+}
+
+function showIncomeQualifySection() {
+  var additionalInfo = document.getElementById("additional-info");
+  var schoolNameField = document.getElementById("school-name-field");
+  var householdInfo = document.getElementById("household-info");
+  var incomeQualifyRadio = document.querySelector(
+    'input[name="eligibility"][value="IncomeQualify"]'
+  );
+
+  if (incomeQualifyRadio.checked) {
+    additionalInfo.style.display = "none";
+    schoolNameField.style.display = "none";
+    householdInfo.style.display = "block";
+  } else {
+    additionalInfo.style.display = "none";
+    schoolNameField.style.display = "none";
+    householdInfo.style.display = "none";
+  }
+}
+
+function showPellGrantSection() {
+  var additionalInfo = document.getElementById("additional-info");
+  var schoolNameField = document.getElementById("school-name-field");
+  var householdInfo = document.getElementById("household-info");
+  var pellGrantRadio = document.querySelector(
+    'input[name="eligibility"][value="PellGrant"]'
+  );
+
+  if (pellGrantRadio.checked) {
+    additionalInfo.style.display = "none";
+    schoolNameField.style.display = "block";
+    householdInfo.style.display = "none";
+  } else {
+    additionalInfo.style.display = "none";
+    schoolNameField.style.display = "none";
+    householdInfo.style.display = "none";
+  }
+}
+
+// New function to check if at least one eligibility option is selected
+function validateEligibility() {
+  var eligibilityRadioButtons = document.querySelectorAll(
+    'input[name="eligibility"]'
+  );
+  for (var i = 0; i < eligibilityRadioButtons.length; i++) {
+    if (eligibilityRadioButtons[i].checked) {
+      return true; // At least one option is selected
+    }
+  }
+  return false; // No option is selected
+}
+
+function handleNextButtonClick() {
+  if (!validateEligibility()) {
+    alert("Please select an eligibility option.");
+  } else if (!validateAdditionalInfo()) {
+    alert("Please fill in all required fields.");
+  } else {
+    nextPage(); // Move to the next page if eligibility and fields are validated
+  }
+}
+
+
+document
+  .getElementById("first-radio")
+  .addEventListener("change", function () {
+    var additionalInfo = document.getElementById("additional-info");
+
+    // If the first radio button is checked, show the "additional-info" div, otherwise, hide it
+    if (this.checked) {
+      additionalInfo.style.display = "block";
+    } else {
+      additionalInfo.style.display = "none";
+    }
+  });
+
+function showBqpDetails() {
+  var bqpDetails = document.getElementById("bqp-details");
+  bqpDetails.style.display = "block";
+}
+
+function hideBqpDetails() {
+  var bqpDetails = document.getElementById("bqp-details");
+  bqpDetails.style.display = "none";
+}
+
+function showSchoolNameField() {
+  var schoolNameField = document.getElementById("school-name-field");
+  schoolNameField.style.display = "block";
+  schoolNameField.querySelector("input").required = true; // Make School Name required
+  hideBqpDetails(); // Hide BQP details initially
+}
+
+function validateForm() {
+  // Get a reference to the form element
+  const form = document.getElementById('personal-info-form');
+
+  // Check if the form is valid
+  if (form.checkValidity()) {
+    // All form fields are valid, so you can submit the form or perform other actions
+    alert('Form submitted successfully!');
+    // You can submit the form here if needed
+  } else {
+    // At least one form field is invalid, show an error message
+    alert('Please fill in all required fields and correct any errors.');
+  }
+}
+
+// Add an event listener to the form's submit button
+const submitButton = document.getElementById('submit-button');
+submitButton.addEventListener('click', function (e) {
+  // Prevent the form from submitting (we will handle submission in validateForm)
+  e.preventDefault();
+
+  // Call the validateForm function
+  validateForm();
+});
+
+
+function validateForm() {
+        // Get all the input elements with the "required" attribute
+        const requiredInputs = document.querySelectorAll('input[required]');
+        let isValid = true;
+
+        // Check if any of the required fields are empty
+        requiredInputs.forEach(input => {
+            if (input.value.trim() === '') {
+                isValid = false;
+            }
+        });
+
+        if (isValid) {
+            // All required fields are filled, show the success message
+            alert('Form submitted');
+        } else {
+            // Some required fields are empty, show the error message
+            alert('Please fill in all required fields');
+        }
+    }
+
+    </script>
+
+    </body>
+
+</html>
